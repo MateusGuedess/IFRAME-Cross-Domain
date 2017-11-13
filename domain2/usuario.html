@@ -1,0 +1,47 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<Strong style="color:red;">
+    <h2>IFRAME</h2>
+        <div id="nome"></div>
+        <div id="idade"></div>
+        <div id="linkedin"></div>
+        <div id="numero"></div>
+</Strong>
+<script>
+
+    function jsonCallback(json){
+        console.log(json);
+        console.log(json);
+        $('#idade').html("Idade: " + json.one.Idade);
+        $('#nome').html("Nome: " +json.one.Nome);
+        $('#linkedin').html("Linkedin: " +json.one.Linkedin);
+        $('#numero').html("Número: " + json.one.Numero);
+    }
+
+    $.ajax({
+        url:'http://www.mocky.io/v2/5a09bb03320000fa3a1382eb',
+        dataType: 'JSONP',
+        jsonpCallback: "jsonCallback"
+    });
+</script>
+<!--
+    {
+  "one": {
+      "Nome" : "Mateus Guedes da ConceiÃ§Ã£o",
+      "Idade" :    "20",
+      "Linkedin": "linkedin.com.br/in/MateusGuedess",
+      "Numero" : "1212-2121"
+   },
+    "two": {
+      "Nome" : "Vinicius Guedes da ConceiÃ§Ã£o",
+      "Idade" :	"23",
+      "Numero" : "1212-2121"
+   },
+    "three": {
+      "Nome" : "Gustavo Guedes da ConceiÃ§Ã£o",
+      "Idade" : "10",
+      "Numero" : "1212-2121"
+   }
+}
+
+http://www.mocky.io/v2/5a09bb03320000fa3a1382eb
